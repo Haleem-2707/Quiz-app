@@ -201,7 +201,7 @@ body {
     left: 0px;
     height: 3px;
     
-    background: red;
+    background: rgb(0, 255, 0);
  }
 
 .quiz_box section {

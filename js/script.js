@@ -44,23 +44,25 @@ const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
 
 restart_quiz.onclick = ()=>{
-    result_box.classList.remove("activeResult");
-    quiz_box.classList.add("activeQuiz");
-    let que_count = 0;
-    let que_numb = 1;
-    let timeValue = 15;
-    let widthValue = 0;
-    let userScore = 0;
-    showQuestions(que_count);
-    queCounter(que_numb);
-    clearInterval(counter);
-    startTimer(timeValue);
-    clearInterval(counterLine);
-    startTimerLine(widthValue);
-    next_btn.style.display = "none";
-    timeOff.textContent = "Time left";
+
+window.location.reload();
+//     result_box.classList.remove("activeResult");
+//     quiz_box.classList.add("activeQuiz");
+//     let que_count = 0;
+//     let que_numb = 1;
+//     let timeValue = 15;
+//     let widthValue = 0;
+//     let userScore = 0;
+//     showQuestions(que_count);
+//     queCounter(que_numb);
+//     clearInterval(counter);
+//     startTimer(timeValue);
+//     clearInterval(counterLine);
+//     startTimerLine(widthValue);
+//     next_btn.style.display = "none";
    
-}
+   
+};
 
 quit_quiz.onclick = ()=>{
     window.location.reload();
@@ -138,7 +140,7 @@ function optionSelected(answer){
             option_list.children[i].insertAdjacentHTML("beforeend", tickIcon);
            }
                 
-       };
+       }
     }
 
     //once user selected disabled all options
@@ -181,7 +183,7 @@ function startTimer(time){
         if(time < 0){
             clearInterval(counter);
             timeCount.textContent = "00";
-            timeOff.textContent = "Time off";
+            // timeOff.textContent = "Time off";
 
             let correctAns = questions[que_count].answer;
             let allOptions = option_list.children.length;
@@ -204,7 +206,7 @@ function startTimer(time){
 }
 
 function startTimerLine(time){
-    counterLine = setInterval(timer, 30);
+    counterLine = setInterval(timer, 29);
     function timer(){
         time += 1;
         timeLine.style.width = time + "px";
@@ -224,6 +226,6 @@ function startTimerLine(time){
 
 function queCounter(index){
     const bottom_ques_counter = quiz_box.querySelector(".total_que");
-    let totalQuesCountTag = '<span><p>'+ que_count +'</p>of<p>'+ questions.length +'</p>Questions</span>';
+    let totalQuesCountTag = '<span><p>'+ index +'</p>of<p>'+ questions.length +'</p>Questions</span>';
     bottom_ques_counter.innerHTML = totalQuesCountTag;
 }
